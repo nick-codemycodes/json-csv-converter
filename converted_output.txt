@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "role": "Admin",
+    "active": "true"
+  },
+  {
+    "id": "2",
+    "name": "Bob Jones",
+    "email": "bob@example.com",
+    "role": "Editor",
+    "active": "false"
+  },
+  {
+    "id": "3",
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "role": "Viewer",
+    "active": "true"
+  },
+  {
+    "id": "4",
+    "name": "Diana Prince",
+    "email": "diana@example.com",
+    "role": "Admin",
+    "active": "true"
+  }
+]
