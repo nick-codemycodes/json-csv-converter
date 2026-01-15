@@ -72,6 +72,18 @@ function convertToJson() {
     document.getElementById('outputData').value = JSON.stringify(result, null, 2);
 }
     
+// 3. Generate a local Blob object from the output textarea and trigger a browser download
+function downloadResult() {
+    const text = document.getElementById('outputData').value;
+    if (!text) return alert('No output to download!');
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'converted_output.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+}
    
 </script>
 
