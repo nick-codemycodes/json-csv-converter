@@ -30,6 +30,23 @@
 </div>
 
 <script>
+    // Vanilla JS logic for conversion and browser file generation
+    function convertToCsv() {
+        try {
+            const json = JSON.parse(document.getElementById('inputData').value);
+            const items = Array.isArray(json) ? json : [json];
+            const headers = Object.keys(items[0]);
+            
+            let csv = headers.join(',') + '\n';
+            items.forEach(item => {
+                csv += headers.map(header => JSON.stringify(item[header] || '')).join(',') + '\n';
+            });
+            
+            document.getElementById('outputData').value = csv;
+        } catch (e) {
+            alert('Invalid JSON format: ' + e.message);
+        }
+    }
     
    
 </script>
