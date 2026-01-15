@@ -47,6 +47,30 @@
             alert('Invalid JSON format: ' + e.message);
         }
     }
+
+    // 2. Convert CSV text input back to formatted JSON format and display it
+function convertToJson() {
+    const csv = document.getElementById('inputData').value.trim();
+    const lines = csv.split('\n');
+    if (lines.length < 2) {
+        alert('CSV must have a header row and at least one data row.');
+        return;
+    }
+    
+    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    const result = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        const currentLine = lines[i].split(',');
+        const obj = {};
+        headers.forEach((header, index) => {
+            obj[header] = currentLine[index] ? currentLine[index].trim().replace(/^"|"$/g, '') : '';
+        });
+        result.push(obj);
+    }
+    
+    document.getElementById('outputData').value = JSON.stringify(result, null, 2);
+}
     
    
 </script>
